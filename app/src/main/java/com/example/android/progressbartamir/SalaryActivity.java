@@ -5,22 +5,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
-import static com.example.android.progressbartamir.R.id.editTextAge;
-import static com.example.android.progressbartamir.R.id.editTextName;
+public class SalaryActivity extends AppCompatActivity {
 
-public class PhotoActivity extends AppCompatActivity {
-    ImageView imageViewAvatar;
     Button buttonNext, buttonBack;
     ProgressBar progressBar;
+    ProgressBar salaryProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_photo);
+        setContentView(R.layout.activity_salary);
         initViews();
         initListeners();
     }
@@ -44,21 +40,21 @@ public class PhotoActivity extends AppCompatActivity {
     }
 
     public void buttonNextClick(View view) {
-            Intent intent = new Intent(this, SalaryActivity.class);
+        Intent intent = new Intent(this, SalaryActivity.class);
 
-            startActivity(intent);
+        startActivity(intent);
     }
 
     public void buttonBackClick(View view) {
-        Intent intent = new Intent(this, NameActivity.class);
+        Intent intent = new Intent(this, PhotoActivity.class);
         startActivity(intent);
     }
 
     public void initViews() {
-        imageViewAvatar = (ImageView) findViewById(R.id.imageViewPhoto);
         buttonBack = (Button) findViewById(R.id.buttonBack);
         buttonNext = (Button) findViewById(R.id.buttonNext);
         progressBar = (ProgressBar) findViewById(R.id.progressBarActivities);
-        progressBar.setProgress(1);
+        progressBar.setProgress(2);
     }
 }
+

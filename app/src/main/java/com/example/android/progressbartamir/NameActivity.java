@@ -10,11 +10,12 @@ import android.widget.ProgressBar;
 
 import android.widget.Toast;
 
+import com.example.android.progressbartamir.Entities.User;
+
 public class NameActivity extends AppCompatActivity {
     EditText editTextName, editTextAge;
     Button buttonNext, buttonBack;
     ProgressBar progressBar;
-    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,8 @@ public class NameActivity extends AppCompatActivity {
         editTextAge = (EditText) findViewById(R.id.editTextAge);
         buttonNext = (Button) findViewById(R.id.buttonNext);
         buttonBack = (Button) findViewById(R.id.buttonBack);
-        progressBar = (ProgressBar) findViewById(R.id.progressBarActivites);
+        progressBar = (ProgressBar) findViewById(R.id.progressBarActivities);
+        progressBar.setProgress(0);
     }
 
     public void initListeners() {
@@ -53,18 +55,32 @@ public class NameActivity extends AppCompatActivity {
     }
 
     public void buttonNextClick(View view) {
-        if (!editTextName.equals("") && !editTextName.equals("")) {
-            intent = new Intent(this, PhotoActivity.class);
+        if (isEmpty(editTextName) || isEmpty(editTextAge)) {
+            Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+        } else {
+            /*User newUser = new User();
+            newUser.set_name(editTextName.getText().toString());
+            newUser.set_lustName(editTextAge.getText().toString());*/
+
+            Intent intent = new Intent(this, PhotoActivity.class);
             intent.putExtra("name", editTextName.getText().toString());
             intent.putExtra("age", editTextAge.getText().toString());
+
             startActivity(intent);
-        } else {
-            Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
         }
     }
 
     public void buttonBackClick(View view) {
-        intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
+
+    public boolean isEmpty(EditText view) {
+        if (view.getText().toString().isEmpty()) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
 }

@@ -8,46 +8,51 @@
     tools:context="com.example.android.progressbartamir.MainActivity">
 
     <ProgressBar
-        android:id="@+id/progressBarActivites"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:max="4" />
-
-    <EditText
-        android:id="@+id/editTextName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/nameHint"
-        android:inputType="textPersonName"
-        android:textColorHint="@color/colorPrimaryDark" />
-
-    <EditText
-        android:id="@+id/editTextAge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/ageHint"
-        android:inputType="number"
-        android:textColorHint="@color/colorPrimaryDark" />
+        android:id="@+id/progressBarActivities"
+        style="@style/progressBarStyle" />
 
     <LinearLayout
         android:id="@+id/layoutButtons"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
 
-        <Button
-            android:id="@+id/buttonNext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/go"
-            android:textColor="@color/colorPrimaryDark" />
 
         <Button
             android:id="@+id/buttonBack"
-            android:layout_width="wrap_content"
+            style="@style/buttonStyle"
+            android:text="@string/backButton" />
+
+        <Button
+            android:id="@+id/buttonNext"
+            style="@style/buttonStyle" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20sp"
+        android:layout_marginRight="20sp"
+        android:background="@android:color/darker_gray"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/editTextName"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/backButton"
-            android:textColor="@color/colorPrimaryDark" />
+            android:hint="@string/nameHint"
+            android:inputType="textPersonName"
+            android:textColorHint="@color/colorPrimaryDark" />
+
+        <EditText
+            android:id="@+id/editTextAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/ageHint"
+            android:inputType="number"
+            android:textColorHint="@color/colorPrimaryDark" />
+
     </LinearLayout>
 
 </LinearLayout>

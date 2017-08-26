@@ -25,6 +25,7 @@
 
         <Button
             android:id="@+id/buttonNext"
+            android:text="@string/finish"
             style="@style/buttonStyle" />
 
     </LinearLayout>
@@ -38,7 +39,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/editTextName"
+            android:id="@+id/tvName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/nameHint"
@@ -46,12 +47,18 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/editTextAge"
+            android:id="@+id/tvAge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/ageHint"
             android:textColorHint="@color/colorPrimaryDark"
             android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tvSalary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"/>
 
     </LinearLayout>
 

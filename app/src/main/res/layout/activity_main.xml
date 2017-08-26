@@ -5,15 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.android.progressbartamir.MainActivity">
+
     <TextView
+        android:id="@+id/tvMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
         android:text="@string/register"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="70sp"
-        android:gravity="center"
-        android:textStyle="italic"
-        android:layout_width="match_parent"
-        android:layout_centerInParent="true"
-        android:layout_height="wrap_content"
-        android:onClick="nextActivity"/>
+        android:textStyle="italic" />
 
 </RelativeLayout>

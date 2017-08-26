@@ -5,4 +5,5 @@
     <string name="nameHint">name</string>
     <string name="ageHint">age</string>
     <string name="backButton">back</string>
+    <string name="finish">FINISH</string>
 </resources>

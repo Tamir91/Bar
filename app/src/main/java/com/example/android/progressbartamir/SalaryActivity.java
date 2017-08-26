@@ -6,12 +6,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.SeekBar;
+import android.widget.TextView;
 
 public class SalaryActivity extends AppCompatActivity {
 
     Button buttonNext, buttonBack;
+    TextView textViewSalary;
     ProgressBar progressBar;
-    ProgressBar salaryProgressBar;
+    SeekBar salarySeekBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +22,7 @@ public class SalaryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_salary);
         initViews();
         initListeners();
+        setSeekBar();
     }
 
     public void initListeners() {
@@ -27,10 +31,10 @@ public class SalaryActivity extends AppCompatActivity {
             public void onClick(View v) {
                 switch (v.getId()) {
                     case R.id.buttonBack:
-                        buttonBackClick(v);
+                        buttonBackClick();
                         break;
                     case R.id.buttonNext:
-                        buttonNextClick(v);
+                        buttonNextClick();
                         break;
                 }
             }
@@ -39,13 +43,13 @@ public class SalaryActivity extends AppCompatActivity {
         buttonBack.setOnClickListener(onClickListener);
     }
 
-    public void buttonNextClick(View view) {
-        Intent intent = new Intent(this, SalaryActivity.class);
-
+    public void buttonNextClick() {
+        Intent intent = new Intent(this, SummaryActivity.class);
+        intent.putExtra("salary", textViewSalary.getText().toString());
         startActivity(intent);
     }
 
-    public void buttonBackClick(View view) {
+    public void buttonBackClick() {
         Intent intent = new Intent(this, PhotoActivity.class);
         startActivity(intent);
     }
@@ -53,8 +57,31 @@ public class SalaryActivity extends AppCompatActivity {
     public void initViews() {
         buttonBack = (Button) findViewById(R.id.buttonBack);
         buttonNext = (Button) findViewById(R.id.buttonNext);
+        textViewSalary = (TextView) findViewById(R.id.tvSalary);
         progressBar = (ProgressBar) findViewById(R.id.progressBarActivities);
         progressBar.setProgress(2);
+        salarySeekBar = (SeekBar) findViewById(R.id.seekBar);
     }
+
+    public void  setSeekBar(){
+        salarySeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                int salary = seekBar.getProgress();
+                textViewSalary.setText(salary);
+            }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+    }
+
+
 }
 

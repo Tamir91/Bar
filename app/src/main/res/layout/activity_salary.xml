@@ -12,27 +12,34 @@
         style="@style/progressBarStyle" />
 
     <LinearLayout
-    android:id="@+id/layoutButtons"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center_horizontal">
+        android:id="@+id/layoutButtons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
 
 
-    <Button
-        android:id="@+id/buttonBack"
-        style="@style/buttonStyle"
-        android:text="@string/backButton" />
+        <Button
+            android:id="@+id/buttonBack"
+            style="@style/buttonStyle"
+            android:text="@string/backButton" />
 
-    <Button
-        android:id="@+id/buttonNext"
-        style="@style/buttonStyle" />
+        <Button
+            android:id="@+id/buttonNext"
+            style="@style/buttonStyle" />
 
-</LinearLayout>
+    </LinearLayout>
 
     <SeekBar
         android:id="@+id/seekBar"
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
+        android:max="40000" />
+
+    <TextView
+        android:id="@+id/tvSalary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="40sp" />
 </LinearLayout>

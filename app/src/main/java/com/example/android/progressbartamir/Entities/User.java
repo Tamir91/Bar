@@ -7,8 +7,15 @@ package com.example.android.progressbartamir.Entities;
 public class User {
     private String _name;
     private String _lustName;
-    private short _age;
-    private int _salary;
+    private String _age;
+    private String _salary;
+
+    public User() {
+        _name = "";
+        _lustName = "";
+        _age = "";
+        _salary = "";
+    }
 
     public String get_name() {
         return _name;
@@ -26,19 +33,19 @@ public class User {
         this._lustName = _lustName;
     }
 
-    public short get_age() {
+    public String get_age() {
         return _age;
     }
 
-    public void set_age(int _age) {
-        this._age = (short) _age;
+    public void set_age(String _age) {
+        this._age = _age;
     }
 
-    public int get_salary() {
+    public String get_salary() {
         return _salary;
     }
 
-    public void set_salary(int _salary) {
+    public void set_salary(String _salary) {
         this._salary = _salary;
     }
 }

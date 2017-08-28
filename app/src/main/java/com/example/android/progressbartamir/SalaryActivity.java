@@ -9,12 +9,17 @@ import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.example.android.progressbartamir.Entities.User;
+import com.example.android.progressbartamir.dataAccess.UserPreferences;
+
 public class SalaryActivity extends AppCompatActivity {
 
     Button buttonNext, buttonBack;
     TextView textViewSalary;
     ProgressBar progressBar;
     SeekBar salarySeekBar;
+    UserPreferences userPreferences;
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +28,8 @@ public class SalaryActivity extends AppCompatActivity {
         initViews();
         initListeners();
         setSeekBar();
+        user = new User();
+        userPreferences = new UserPreferences(this);
     }
 
     public void initListeners() {
@@ -45,7 +52,9 @@ public class SalaryActivity extends AppCompatActivity {
 
     public void buttonNextClick() {
         Intent intent = new Intent(this, SummaryActivity.class);
-        intent.putExtra("salary", textViewSalary.getText().toString());
+        int ind = userPreferences.getIndex();
+        user = userPreferences.getUser(ind - 1);
+        user.set_salary(textViewSalary.getText().toString());
         startActivity(intent);
     }
 
@@ -67,8 +76,8 @@ public class SalaryActivity extends AppCompatActivity {
         salarySeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                int salary = seekBar.getProgress();
-                textViewSalary.setText(salary);
+                int salary = 1000 + seekBar.getProgress();
+                textViewSalary.setText("" + salary);
             }
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {

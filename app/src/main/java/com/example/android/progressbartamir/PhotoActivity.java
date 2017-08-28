@@ -40,16 +40,18 @@ public class PhotoActivity extends AppCompatActivity {
                     case R.id.buttonNext:
                         buttonNextClick(v);
                         break;
-                    case R.id.imageViewPhoto:
-                        dispatchTakePictureIntent(v);
+                    case R.id.ibPhoto:
+                        dispatchTakePictureIntent();
+                        break;
                 }
             }
         };
         buttonNext.setOnClickListener(onClickListener);
         buttonBack.setOnClickListener(onClickListener);
+        ibAvatar.setOnClickListener(onClickListener);
     }
 
-    private void dispatchTakePictureIntent(View v) {
+    private void dispatchTakePictureIntent() {
         Intent takeIntentPicture = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takeIntentPicture.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(takeIntentPicture, REQUEST_IMAGE_CAPTURE);
@@ -77,7 +79,7 @@ public class PhotoActivity extends AppCompatActivity {
     }
 
     public void initViews() {
-        ibAvatar = (ImageButton) findViewById(R.id.imageButtonPhoto);
+        ibAvatar = (ImageButton) findViewById(R.id.ibPhoto);
         buttonBack = (Button) findViewById(R.id.buttonBack);
         buttonNext = (Button) findViewById(R.id.buttonNext);
         progressBar = (ProgressBar) findViewById(R.id.progressBarActivities);
